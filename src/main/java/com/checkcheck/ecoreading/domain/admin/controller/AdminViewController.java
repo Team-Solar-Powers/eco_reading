@@ -56,10 +56,7 @@ public class AdminViewController {
 
         if (enabledValue != null) {
             Page<Users> usersPage = userService.findAllByEnabled(enabledValue, PageRequest.of(page, size));
-            log.info("user 페이징 : " + usersPage.getContent());
             List<Users> usersList = userService.makeUserList(usersPage.getContent());
-            usersPage.forEach(i -> log.info("유저 페이징 : " + i.getEnabled()));
-            usersList.forEach(i -> log.info("유저 리스트 : " + i.getUsersId()));
             model.addAttribute("usersList", usersList);
             model.addAttribute("usersPage", usersPage);
             model.addAttribute("enabled", enabledValue);
@@ -81,6 +78,8 @@ public class AdminViewController {
 
         Page<Boards> boardsPage = boardService.findAll(PageRequest.of(page,size));
         List<Boards> boardsList = boardsPage.getContent();
+
+//        boardService.changeToBoardDTO(boardsList); 나중에 DTO로 변환
 
         model.addAttribute("boardsList", boardsList);
         model.addAttribute("boardsPage", boardsPage);
