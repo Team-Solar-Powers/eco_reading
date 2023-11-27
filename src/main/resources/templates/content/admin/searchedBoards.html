@@ -12,58 +12,57 @@
 <!-- Main -->
 <main role="main" class="ml-sm-auto px-md-4" style="height: auto; min-height: 100%; margin-bottom: 50px; display: flex; flex-direction: column;">
     <div class="main-container border rounded p-3 mt-2" style="flex: 1;"> <!-- 메인컨텐츠 주변 보더라인 잡기-->
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">나눔글 관리</h1>
-            </div>
-            <!-- 검색창 -->
-            <br>
-            <form action="/admin/search" method="get">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <select class="custom-select rounded-pill" name="searchType">
-                            <option value="search">유저 아이디 검색</option>
-                            <option value="isbn">책 바코드 검색</option>
-                            <option value="status">거래 상태</option>
-                        </select>
-                    </div>
-                    <input type="text" class="form-control rounded-pill" name="search" placeholder=" " aria-label="Search" aria-describedby="search-addon" />
-                    <button type="submit" class="btn btn-outline-primary rounded-pill" style="color: black; border-color: #E2ECE2; background-color: #E2ECE2;">검색</button>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">나눔글 관리</h1>
+        </div>
+        <!-- 검색창 -->
+        <br>
+        <form action="/admin/search" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <select class="custom-select rounded-pill" name="searchType">
+                        <option value="search">유저 아이디 검색</option>
+                        <option value="isbn">책 바코드 검색</option>
+                        <option value="status">거래 상태</option>
+                    </select>
                 </div>
-            </form>
-            <br>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>등록 유저 아이디</th>
-                        <th>등록 일자</th>
-                        <th>책 바코드</th>
-                        <th>거래 상태</th>
-                        <th>자세히 보기</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- boardsList 반복 -->
-                    <tr th:each="board : ${boardsList}">
-                        <td th:text="${board.users.usersId}"></td>
-                        <td th:text="${board.createdDate}"></td>
-                        <td>
-                            <!-- booksList 반복 -->
-                            <span th:each="book : ${board.booksList}" th:text="${book.isbn}"></span>
-                        </td>
-                        <td>
-                            <!-- booksList 반복 -->
-                            <span th:each="book : ${board.booksList}" th:text="${book.transactions.status}"></span>
-                        </td>
-                        <td>
-                            <a th:href="@{/admin/board/detail/{boardId}(boardId=${board.boardId})}" class="btn btn-primary">자세히 보기</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <input type="text" class="form-control rounded-pill" name="search" placeholder=" " aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit" class="btn btn-outline-primary rounded-pill" style="color: black; border-color: #E2ECE2; background-color: #E2ECE2;">검색</button>
             </div>
-        </main>
+        </form>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>등록 유저 아이디</th>
+                    <th>등록 일자</th>
+                    <th>책 바코드</th>
+                    <th>거래 상태</th>
+                    <th>자세히 보기</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- boardsList 반복 -->
+                <tr th:each="board : ${boardsList}">
+                    <td th:text="${board.users.usersId}"></td>
+                    <td th:text="${board.createdDate}"></td>
+                    <td>
+                        <!-- booksList 반복 -->
+                        <span th:each="book : ${board.booksList}" th:text="${book.isbn}"></span>
+                    </td>
+                    <td>
+                        <!-- booksList 반복 -->
+                        <span th:each="book : ${board.booksList}" th:text="${book.transactions.status}"></span>
+                    </td>
+                    <td>
+                        <a th:href="@{/admin/board/detail/{boardId}(boardId=${board.boardId})}" class="btn btn-primary" style="background-color: #82BA82; color: #fff;">자세히 보기</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+</main>
 </body>
 </html>

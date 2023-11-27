@@ -15,6 +15,7 @@ import com.checkcheck.ecoreading.domain.transactions.entity.TransactionStatus;
 import com.checkcheck.ecoreading.domain.transactions.entity.Transactions;
 import com.checkcheck.ecoreading.domain.users.entity.Users;
 import com.checkcheck.ecoreading.domain.users.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -223,4 +224,22 @@ public class BoardService {
         model.addAttribute("delivery", deliveryRepository.save(delivery));
         return model;
     }
+
+
+    // DTO로 변환해야 함
+//    public List<AdminBoardDTO> changeToBoardDTO(List<Boards> boards){
+//        List<AdminBoardDTO> adminBoardDTO = new ArrayList<>();
+//        adminBoardDTO.forEach(adminDTO -> {
+//            boards.forEach(board -> {
+//                adminDTO.setBoardId(board.getBoardId());
+//                adminDTO.setUsers(board.getUsers());
+//                adminDTO.setBooksList(board.getBooksList());
+//                adminDTO.setDeliveryList(board.getDeliveryList());
+//                adminDTO.setMessage(board.getMessage());
+//                adminDTO.setCreatedDate(board.getCreatedDate());
+//                adminDTO.setUpdateDate(board.getUpdateDate());
+//            });
+//        });
+//        return adminBoardDTO;
+//    }
 }
