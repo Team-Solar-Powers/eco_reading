@@ -213,3 +213,6 @@
 
 ## 6.CI/CD
 [[CI/CD 구축 중 에러]](https://unleashed-fire-109.notion.site/CI-CD-c41ffbccb5794007abbb4431cb7530f3?pvs=4)
+
+## 7. 나눔글 업로드
+[[양방향 연관관계 @Builder 오류]](https://hehesim.tistory.com/74)
